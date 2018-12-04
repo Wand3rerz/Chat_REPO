@@ -1,0 +1,11 @@
+/home/wanderer/RiderProjects/Chat/Host/bin/Debug/netcoreapp2.1/Host.deps.json
+/home/wanderer/RiderProjects/Chat/Host/bin/Debug/netcoreapp2.1/Host.runtimeconfig.json
+/home/wanderer/RiderProjects/Chat/Host/bin/Debug/netcoreapp2.1/Host.runtimeconfig.dev.json
+/home/wanderer/RiderProjects/Chat/Host/bin/Debug/netcoreapp2.1/Host.dll
+/home/wanderer/RiderProjects/Chat/Host/bin/Debug/netcoreapp2.1/Host.pdb
+/home/wanderer/RiderProjects/Chat/Host/obj/Debug/netcoreapp2.1/Host.csprojAssemblyReference.cache
+/home/wanderer/RiderProjects/Chat/Host/obj/Debug/netcoreapp2.1/Host.csproj.CoreCompileInputs.cache
+/home/wanderer/RiderProjects/Chat/Host/obj/Debug/netcoreapp2.1/Host.AssemblyInfoInputs.cache
+/home/wanderer/RiderProjects/Chat/Host/obj/Debug/netcoreapp2.1/Host.AssemblyInfo.cs
+/home/wanderer/RiderProjects/Chat/Host/obj/Debug/netcoreapp2.1/Host.dll
+/home/wanderer/RiderProjects/Chat/Host/obj/Debug/netcoreapp2.1/Host.pdb
