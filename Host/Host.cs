@@ -24,7 +24,6 @@ namespace Host
             {
                 server.Start();
                 Console.WriteLine("Booted");
-                Console.Read();
             }
             catch (Exception e)
             {
@@ -40,7 +39,21 @@ namespace Host
 
                 stream.Read(receivedBuffer, 0, receivedBuffer.Length);
 
-                string msg = Encoding.ASCII.GetString(receivedBuffer, 0, receivedBuffer.Length);
+                StringBuilder msg = new StringBuilder();
+
+                foreach (byte b in receivedBuffer)
+                {
+                    if (b.Equals(59))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        msg.Append(Convert.ToChar(b).ToString());
+                    }
+                }
+                
+                Console.WriteLine(msg.ToString() + msg.Length);
             }
         }
 
