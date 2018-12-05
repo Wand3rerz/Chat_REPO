@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Host
@@ -35,7 +36,11 @@ namespace Host
             {
                 client = server.AcceptTcpClient();
                 byte[] receivedBuffer = new byte[100];
-                
+                NetworkStream stream = client.GetStream();
+
+                stream.Read(receivedBuffer, 0, receivedBuffer.Length);
+
+                string msg = Encoding.ASCII.GetString(receivedBuffer, 0, receivedBuffer.Length);
             }
         }
 
