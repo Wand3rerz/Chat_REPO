@@ -34,7 +34,6 @@ namespace Host
             while (true)
             {
                 client = server.AcceptTcpClient();
-
                 byte[] receivedBuffer = new byte[100];
                 
             }
