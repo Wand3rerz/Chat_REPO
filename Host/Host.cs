@@ -32,12 +32,14 @@ namespace Host
                 Console.Read();
             }
 
+            clientList = new List<TcpClient>();
+            
             while (true)
             {
                 client = server.AcceptTcpClient();
                 clientList.Add(client);
                 
-                byte[] receivedBuffer = new byte[100];
+                byte[] receivedBuffer = new byte[1024];
                 NetworkStream stream = client.GetStream();
 
                 stream.Read(receivedBuffer, 0, receivedBuffer.Length);
@@ -46,7 +48,7 @@ namespace Host
 
                 foreach (byte b in receivedBuffer)
                 {
-                    if (b.Equals(59))
+                    if (b.Equals(00))
                     {
                         break;
                     }
@@ -57,13 +59,30 @@ namespace Host
                 }
                 
                 Console.WriteLine(msg.ToString() + msg.Length);
+                SendToClients(msg.ToString());
 
-                foreach (TcpClient c in clientList)
-                {
-                    
-                }
             }
         }
 
+        private static void SendToClients(string msgToSend)
+        {
+            Console.WriteLine(clientList.Count.ToString());
+            Console.ReadKey();
+
+            foreach (TcpClient c in clientList)
+            {
+
+                Int64 byteCount = Encoding.ASCII.GetByteCount(msgToSend + 1);
+                
+                Byte[] sendData = new byte[byteCount];
+
+                sendData = Encoding.ASCII.GetBytes(msgToSend);
+            
+                Console.WriteLine(msgToSend + " send");
+            
+                NetworkStream stream = c.GetStream();    
+                stream.Write(sendData, 0, sendData.Length);
+            }
+        }
     }
 }
