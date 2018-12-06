@@ -13,9 +13,10 @@ namespace Host
     {
         private static Dictionary<int, string> userList;
         private static int id;
+        private static List<TcpClient> clientList;
         
         static void Main(string[] args)
-        {
+        {   
             IPAddress ip = Dns.GetHostEntry("localhost").AddressList[0];
             TcpListener server = new TcpListener(ip, 8888);
             TcpClient client = default(TcpClient);
@@ -34,6 +35,8 @@ namespace Host
             while (true)
             {
                 client = server.AcceptTcpClient();
+                clientList.Add(client);
+                
                 byte[] receivedBuffer = new byte[100];
                 NetworkStream stream = client.GetStream();
 
@@ -54,17 +57,13 @@ namespace Host
                 }
                 
                 Console.WriteLine(msg.ToString() + msg.Length);
+
+                foreach (TcpClient c in clientList)
+                {
+                    
+                }
             }
         }
 
-        public static void NewClient(string name)
-        {
-            id = 0;
-            id = new Random().Next(1, 10000);
-            if (name != null)
-            {
-                userList.Add(id, name);
-            }
-        }
     }
 }

@@ -1,14 +1,11 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\tycho\\RiderProjects\\Chat_REPO\\Host\\Host.csproj",
+    "projectUniqueName": "/home/wanderer/RiderProjects/Chat/Host/Host.csproj",
     "projectName": "Host",
-    "projectPath": "C:\\Users\\tycho\\RiderProjects\\Chat_REPO\\Host\\Host.csproj",
-    "outputPath": "C:\\Users\\tycho\\RiderProjects\\Chat_REPO\\Host\\obj\\",
+    "projectPath": "/home/wanderer/RiderProjects/Chat/Host/Host.csproj",
+    "outputPath": "/home/wanderer/RiderProjects/Chat/Host/obj/",
     "projectStyle": "PackageReference",
-    "fallbackFolders": [
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-    ],
     "originalTargetFrameworks": [
       "netcoreapp2.1"
     ],

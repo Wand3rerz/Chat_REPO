@@ -11,10 +11,14 @@ namespace Client
     {
         private static string serverIp = "localhost";
         private static int port = 8888;
+        private static bool connected = false;
+        private static string name = "";
         
         static void Main(string[] args)
-        {
-            while (true)
+        {   
+            GetName();
+            
+            while (connected)
             {
                 string input = Console.ReadLine();
 
@@ -26,7 +30,7 @@ namespace Client
                     
                     byte[] sendData = new byte[byteCount];
 
-                    sendData = Encoding.ASCII.GetBytes(input + ";");
+                    sendData = Encoding.ASCII.GetBytes(name + ": " + input + ";");
                     
                     NetworkStream stream = client.GetStream();
                     stream.Write(sendData, 0, sendData.Length);
@@ -37,6 +41,26 @@ namespace Client
                 
             
             }   
+        }
+        
+        private static void GetName()
+        {
+            Console.WriteLine("Name:");
+            string temp = Console.ReadLine();
+
+            if (temp != null && temp != string.Empty)
+            {
+                name = temp;
+                Console.WriteLine(name + "connected");
+
+                connected = true;
+            }
+            else
+            {
+                Console.WriteLine("Name Invalid");
+                GetName();
+            }
+
         }
     }
 }
